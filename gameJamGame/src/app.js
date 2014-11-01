@@ -35,7 +35,7 @@ var HelloWorldLayer = cc.Layer.extend({
         // 3. add your codes below...
         // add a label shows "Hello World"
         // create and initialize a label
-        var helloLabel = new cc.LabelTTF("Hello World", "Arial", 38);
+        var helloLabel = new cc.LabelTTF("Space Elevator", "Arial", 38);
         // position the label on the center of the screen
         helloLabel.x = size.width / 2;
         helloLabel.y = 0;
@@ -43,16 +43,26 @@ var HelloWorldLayer = cc.Layer.extend({
         this.addChild(helloLabel, 5);
 
         // add "HelloWorld" splash screen"
-        this.sprite = new cc.Sprite(res.HelloWorld_png);
-        this.sprite.attr({
+        this.playerSprite = new cc.Sprite(res.Player_png);
+        this.playerSprite.attr({
             x: size.width / 2,
             y: size.height / 2,
-            scale: 0.5,
-            rotation: 180
+            scale: 1,
+            rotation: 0
         });
-        this.addChild(this.sprite, 0);
+        this.addChild(this.playerSprite, 0);
 
-        this.sprite.runAction(
+        // add "HelloWorld" splash screen"
+        this.elevatorSprite = new cc.Sprite(res.Elevator_png);
+        this.elevatorSprite.attr({
+            x: size.width / 2,
+            y: (size.height / 2) - 48,
+            scale: 1,
+            rotation: 0
+        });
+        this.addChild(this.elevatorSprite, 0);
+
+        this.elevatorSprite.runAction(
             cc.sequence(
                 cc.rotateTo(2, 0),
                 cc.scaleTo(2, 1, 1)
