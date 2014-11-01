@@ -14,10 +14,10 @@
     /* Setup your scene here */
     SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
     
-    //myLabel.text = @"Hello, World!";
-    //myLabel.fontSize = 65;
-    //myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
-                                  // CGRectGetMidY(self.frame));
+    myLabel.text = @"Hello, World!";
+    myLabel.fontSize = 65;
+    myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
+                                   CGRectGetMidY(self.frame));
     
     [self addChild:myLabel];
 }
