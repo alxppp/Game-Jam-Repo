@@ -1,4 +1,5 @@
 var res = {
+    Background_png : "res/Background.png",
     Player_png : "res/Player.png",
     Elevator_png : "res/Elevator.png",
     CloseNormal_png : "res/CloseNormal.png",
