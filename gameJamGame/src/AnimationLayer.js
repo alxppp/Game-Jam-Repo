@@ -6,11 +6,22 @@ var AnimationLayer = cc.Layer.extend({
     init:function () {
         this._super();
 
-        var playerSprite = new cc.Sprite(res.Player_png);
-        playerSprite.attr({x: 80, y: 85});
+        var winsize = cc.director.getWinSize();
+        var centerPos = cc.p(winsize.width / 2, winsize.height / 2);
 
-        var actionTo = new cc.MoveTo(2, cc.p(300, 85));
-        playerSprite.runAction(new cc.Sequence(actionTo));
-        this.addChild(playerSprite);
+        var player = new cc.Sprite(res.Player_png);
+        player.attr({x: 80, y: 85});
+
+        var elevator = new cc.Sprite(res.Elevator_png);
+        elevator.setPosition(centerPos)
+
+        //var actionTo = new cc.MoveTo(2, cc.p(300, 85));
+        //player.runAction(new cc.Sequence(actionTo));
+
+        this.addChild(player);
+        this.addChild(elevator);
+
+
+
     }
 });
