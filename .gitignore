@@ -16,3 +16,4 @@ DerivedData
 *.xcuserstate
 cocos2d-js-v3.1
 .idea
+gameJamGame/runtime
