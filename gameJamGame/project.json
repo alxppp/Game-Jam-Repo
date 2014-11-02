@@ -16,6 +16,8 @@
         "src/AnimationLayer.js",
         "src/BackgroundLayer.js",
         "src/MainScene.js",
-        "src/ScoreLayer.js"
+        "src/RestartLayer.js",
+        "src/ScoreLayer.js",
+        "src/constants.js"
     ]
 }
