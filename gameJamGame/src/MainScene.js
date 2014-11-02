@@ -16,7 +16,7 @@ var MainScene = cc.Scene.extend({
         this.initPhysics();
         this.addChild(new BackgroundLayer());
         this.addChild(new AnimationLayer(this.space));
-        this.addChild(new ScoreLayer());
+        this.addChild(new ScoreLayer(), 0, 1);
         this.scheduleUpdate();
     },
     collisionFloorBegin:function (arbiter, space) {

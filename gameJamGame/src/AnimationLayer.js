@@ -54,7 +54,14 @@ var AnimationLayer = cc.Layer.extend({
                 target.body.applyForce(cp.v(delta.x*4,0),cp.v(0,0));
             }
         });
+        this.scheduleUpdate();
+        this.schedule(this.updateScore, 0.1);
+
 
         cc.eventManager.addListener(touchListener, this);
+    },
+    updateScore:function () {
+        var scoreLayer = this.getParent().getChildByTag(1);
+        scoreLayer.updateScore();
     }
 });

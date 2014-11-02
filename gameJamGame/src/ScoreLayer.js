@@ -17,8 +17,8 @@ var ScoreLayer = cc.Layer.extend({
         this.labelScore.setPosition(cc.p(70, winsize.height - 20));
         this.addChild(this.labelScore);
     },
-    updateScore:function (score) {
-        score += 1;
-        this.labelScore.setString( score + "s");
+    updateScore:function () {
+        this.score += 1;
+        this.labelScore.setString(this.score);
     }
 });
