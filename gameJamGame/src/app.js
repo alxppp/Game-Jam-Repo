@@ -24,7 +24,7 @@ var MenuLayer = cc.Layer.extend({
         //6.create a menu and assign onPlay event callback to it
         var menuItemPlay = new cc.MenuItemSprite(
             new cc.Sprite(res.Start_png), // normal state image
-            new cc.Sprite(res.Start_png), //select state image
+            new cc.Sprite(res.Start_p_png), //select state image
             this.onPlay, this);
         var menu = new cc.Menu(menuItemPlay);  //7. create the menu
         menu.setPosition(centerpos);
