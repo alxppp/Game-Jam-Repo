@@ -56,9 +56,15 @@ var AnimationLayer = cc.Layer.extend({
         });
         this.scheduleUpdate();
         this.schedule(this.updateScore, 0.1); // +1 every 1/10 sec
+        this.schedule(this.flipBackground, 0.03); // flip every 2 sec
+
 
 
         cc.eventManager.addListener(touchListener, this);
+    },
+    flipBackground:function () {
+        var backgroundLayer = this.getParent().getChildByTag(2);
+        backgroundLayer.flipBackground();
     },
     updateScore:function () {
         var scoreLayer = this.getParent().getChildByTag(1);
