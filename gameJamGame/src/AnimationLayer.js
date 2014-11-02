@@ -47,7 +47,7 @@ var AnimationLayer = cc.Layer.extend({
             onTouchMoved: function (touch, event) {
                 var target = player;
                 var delta = touch.getDelta();
-                target.body.applyForce(cp.v(delta.x*3,0));
+                target.body.applyForce(cp.v(delta.x*4,0));
             }
         });
 
