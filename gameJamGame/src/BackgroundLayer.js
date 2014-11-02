@@ -19,11 +19,19 @@ var BackgroundLayer = cc.Layer.extend({
     },
     flipBackground:function () {
         if (this.isFlipping){
-            this.backgroundSprite.setFlippedX(!this.backgroundSprite.isFlippedX());
-            this.isFlipping = false;
+            this.flickerCount++;
+            if (this.flickerCount % 2 == 0) {
+                var state = !this.backgroundSprite.isFlippedX();
+                this.backgroundSprite.setFlippedX(state);
+                this.getParent().getChildByTag(1).flipColor(state);
+            }
+            if (this.flickerCount > 5){
+                this.isFlipping = false;
+                this.flickerCount = 0;
+            }
             cc.log("flip");
         } else {
-            this.isFlipping = (Math.random() < 0.06);
+            this.isFlipping = (Math.random() < 0.015);
         }
     }
 });
