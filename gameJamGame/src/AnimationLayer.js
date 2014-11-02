@@ -27,7 +27,7 @@ var AnimationLayer = cc.Layer.extend({
         // Let's add the elevator
         this.elevator = new cc.PhysicsSprite.create(res.Elevator_png);
         var elevatorSize = this.elevator.getContentSize();
-        this.elevatorBody = new cp.Body(2, cp.momentForBox(2, elevatorSize.width, elevatorSize.height));
+        this.elevatorBody = new cp.Body(1, cp.momentForBox(1, elevatorSize.width, elevatorSize.height));
         this.elevatorBody.setPos(cc.p(winsize.width / 2, winsize.height / 2 - 94))
         this.space.addBody(this.elevatorBody);
         this.elevatorShape = new cp.BoxShape(this.elevatorBody, elevatorSize.width, elevatorSize.height);
@@ -55,7 +55,7 @@ var AnimationLayer = cc.Layer.extend({
             }
         });
         this.scheduleUpdate();
-        this.schedule(this.updateScore, 0.1);
+        this.schedule(this.updateScore, 0.1); // +1 every 1/10 sec
 
 
         cc.eventManager.addListener(touchListener, this);
