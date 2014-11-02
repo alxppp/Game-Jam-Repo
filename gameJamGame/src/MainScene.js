@@ -3,8 +3,7 @@ var MainScene = cc.Scene.extend({
     initPhysics:function() {
         this.space = new cp.Space();
         this.space.gravity = cp.v(0, -250);
-        var size = cc.director.getWinSize();
-        var floor = new cp.SegmentShape(this.space.staticBody, cp.v(0, 0), cp.v(size.width, 0), 0)
+        var floor = new cp.SegmentShape(this.space.staticBody, cp.v(-4294967295, -64), cp.v(4294967295, -64), 0)
         floor.setCollisionType(Things.floor);
         this.space.addStaticShape(floor);
 
