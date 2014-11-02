@@ -11,7 +11,7 @@ var RestartLayer = cc.LayerColor.extend({
         cc.MenuItemFont.setFontSize(30);
         var menuItemRestart = new cc.MenuItemSprite(
             new cc.Sprite(res.Restart_png),
-            new cc.Sprite(res.Restart_png),
+            new cc.Sprite(res.Restart_p_png),
             this.onRestart, this);
         var menu = new cc.Menu(menuItemRestart);
         menu.setPosition(centerPos);

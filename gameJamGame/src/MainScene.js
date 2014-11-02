@@ -13,7 +13,7 @@ var MainScene = cc.Scene.extend({
     onEnter:function () {
         this._super();
         this.initPhysics();
-        this.addChild(new BackgroundLayer());
+        this.addChild(new BackgroundLayer(), 0, 2);
         this.addChild(new AnimationLayer(this.space));
         this.addChild(new ScoreLayer(), 0, 1);
         this.scheduleUpdate();
