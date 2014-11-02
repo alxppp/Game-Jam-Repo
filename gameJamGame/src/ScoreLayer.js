@@ -12,9 +12,13 @@ var ScoreLayer = cc.Layer.extend({
 
         var winsize = cc.director.getWinSize();
 
-        this.labelScore = new cc.LabelTTF("99999999", "Helvetica", 20);
+        this.labelScore = new cc.LabelTTF("0", "Helvetica", 20);
         this.labelScore.setColor(cc.color(255,212,156));//black color
         this.labelScore.setPosition(cc.p(70, winsize.height - 20));
         this.addChild(this.labelScore);
+    },
+    updateScore:function () {
+        this.score += 1;
+        this.labelScore.setString(this.score);
     }
 });

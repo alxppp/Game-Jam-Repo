@@ -3,6 +3,7 @@ var res = {
     Player_png : "res/Player.png",
     Elevator_png : "res/Elevator.png",
     Start_png : "res/Start.png",
+    Restart_png : "res/Restart.png",
     CloseNormal_png : "res/CloseNormal.png",
     CloseSelected_png : "res/CloseSelected.png"
 };

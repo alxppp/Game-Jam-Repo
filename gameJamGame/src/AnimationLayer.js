@@ -15,9 +15,12 @@ var AnimationLayer = cc.Layer.extend({
         this.player = new cc.PhysicsSprite.create(res.Player_png);
         var playerSize = this.player.getContentSize();
         this.playerBody = new cp.Body(1, cp.momentForBox(1, playerSize.width, playerSize.height));
-        this.playerBody.setPos(cc.p(winsize.width / 2, winsize.height / 2 + 48))
+        this.playerBody.setPos(cc.p(winsize.width / 2 + 4, winsize.height / 2 + 48))
         this.space.addBody(this.playerBody);
-        this.playerShape = new cp.BoxShape(this.playerBody, playerSize.width, playerSize.height);
+        this.playerShape = new cp.CircleShape(this.playerBody, playerSize.width/2, cp.v(0,0));
+        this.playerShape.setFriction(5);
+        this.playerShape.setCollisionType(Things.player);
+        //this.playerShape.setSensor(true);
         this.space.addShape(this.playerShape);
         this.player.setBody(this.playerBody);
 
@@ -28,6 +31,7 @@ var AnimationLayer = cc.Layer.extend({
         this.elevatorBody.setPos(cc.p(winsize.width / 2, winsize.height / 2 - 94))
         this.space.addBody(this.elevatorBody);
         this.elevatorShape = new cp.BoxShape(this.elevatorBody, elevatorSize.width, elevatorSize.height);
+        this.elevatorShape.setFriction(5);
         this.space.addShape(this.elevatorShape);
         this.elevator.setBody(this.elevatorBody);
 
@@ -47,10 +51,17 @@ var AnimationLayer = cc.Layer.extend({
             onTouchMoved: function (touch, event) {
                 var target = player;
                 var delta = touch.getDelta();
-                target.body.applyForce(cp.v(delta.x*5,0));
+                target.body.applyForce(cp.v(delta.x*4,0),cp.v(0,0));
             }
         });
+        this.scheduleUpdate();
+        this.schedule(this.updateScore, 0.1); // +1 every 1/10 sec
+
 
         cc.eventManager.addListener(touchListener, this);
+    },
+    updateScore:function () {
+        var scoreLayer = this.getParent().getChildByTag(1);
+        scoreLayer.updateScore();
     }
 });
