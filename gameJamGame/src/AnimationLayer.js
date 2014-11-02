@@ -25,13 +25,13 @@ var AnimationLayer = cc.Layer.extend({
         this.elevator = new cc.PhysicsSprite.create(res.Elevator_png);
         var elevatorSize = this.elevator.getContentSize();
         this.elevatorBody = new cp.Body(1, cp.momentForBox(1, elevatorSize.width, elevatorSize.height));
-        this.elevatorBody.setPos(cc.p(winsize.width / 2, winsize.height / 2 - 48))
+        this.elevatorBody.setPos(cc.p(winsize.width / 2, winsize.height / 2 - 94))
         this.space.addBody(this.elevatorBody);
         this.elevatorShape = new cp.BoxShape(this.elevatorBody, elevatorSize.width, elevatorSize.height);
         this.space.addShape(this.elevatorShape);
         this.elevator.setBody(this.elevatorBody);
 
-        this.space.addConstraint(new cp.PivotJoint(this.elevatorBody, this.space.staticBody, cp.v(winsize.width / 2, winsize.height / 2 - 48)));
+        this.space.addConstraint(new cp.PivotJoint(this.elevatorBody, this.space.staticBody, cp.v(winsize.width / 2, winsize.height / 2 - 96)));
 
         this.addChild(this.player);
         this.addChild(this.elevator);
@@ -47,7 +47,7 @@ var AnimationLayer = cc.Layer.extend({
             onTouchMoved: function (touch, event) {
                 var target = player;
                 var delta = touch.getDelta();
-                target.body.applyForce(cp.v(delta.x*2,0));
+                target.body.applyForce(cp.v(delta.x*5,0));
             }
         });
 
