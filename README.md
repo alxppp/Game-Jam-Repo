@@ -1,3 +1,3 @@
 Game-Jam-Repo
 =============
-A mobile game were the player is to remain balanced on a wobbling platform for as long as possible. 
+A mobile game where the player is to remain balanced on a wobbling platform for as long as possible. 
