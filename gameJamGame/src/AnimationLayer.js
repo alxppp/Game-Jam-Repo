@@ -31,6 +31,8 @@ var AnimationLayer = cc.Layer.extend({
         this.space.addShape(this.elevatorShape);
         this.elevator.setBody(this.elevatorBody);
 
+        this.space.addConstraint(new cp.PivotJoint(this.elevatorBody, this.space.staticBody, cp.v(winsize.width / 2, winsize.height / 2 - 48)));
+
         this.addChild(this.player);
         this.addChild(this.elevator);
 
@@ -45,7 +47,7 @@ var AnimationLayer = cc.Layer.extend({
             onTouchMoved: function (touch, event) {
                 var target = player;
                 var delta = touch.getDelta();
-                target.x += delta.x;
+                target.body.applyForce(cp.v(delta.x*2,0));
             }
         });
 

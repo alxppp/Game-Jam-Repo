@@ -2,7 +2,7 @@ var MainScene = cc.Scene.extend({
     space:null,
     initPhysics:function() {
         this.space = new cp.Space();
-        this.space.gravity = cp.v(0, -10);
+        this.space.gravity = cp.v(0, -100);
         var size = cc.director.getWinSize();
         var floor = new cp.SegmentShape(this.space.staticBody, cp.v(0, 0), cp.v(size.width, 0), 0)
         this.space.addStaticShape(floor);
