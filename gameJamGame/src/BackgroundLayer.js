@@ -29,7 +29,6 @@ var BackgroundLayer = cc.Layer.extend({
                 this.isFlipping = false;
                 this.flickerCount = 0;
             }
-            cc.log("flip");
         } else {
             this.isFlipping = (Math.random() < 0.015);
         }
