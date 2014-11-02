@@ -15,7 +15,7 @@ var AnimationLayer = cc.Layer.extend({
         this.player = new cc.PhysicsSprite.create(res.Player_png);
         var playerSize = this.player.getContentSize();
         this.playerBody = new cp.Body(1, cp.momentForBox(1, playerSize.width, playerSize.height));
-        this.playerBody.setPos(cc.p(winsize.width / 2 + 4, winsize.height / 2 + 48))
+        this.playerBody.setPos(cc.p(winsize.width / 2 + (Math.random() * 20 - 10) , winsize.height / 2 + 48))
         this.space.addBody(this.playerBody);
         this.playerShape = new cp.CircleShape(this.playerBody, playerSize.width/2, cp.v(0,0));
         this.playerShape.setFriction(5);
